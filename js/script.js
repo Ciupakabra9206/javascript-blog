@@ -2,7 +2,8 @@
     const links = document.querySelectorAll('.titles a');
     console.log('links:', links);
   });*/
-const titleClickHandler = function(){
+const titleClickHandler = function(event){
+    const clickedElement = this;
     console.log('Link was clicked!');
 
 const links = document.querySelectorAll('.titles a');
@@ -16,6 +17,8 @@ for(let activeLink of activeLinks){
 }
 
   /* add class 'active' to the clicked link */
+clickedElement.classList.add('active');
+console.log('clickedElement:', clickedElement);
 
   /* remove class 'active' from all articles */
 
