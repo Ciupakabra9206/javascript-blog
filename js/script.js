@@ -1,3 +1,7 @@
+// const templates = {
+//   articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+//   articleTagLink: Handlebars.compile(document.querySelector('#template-tag-article-link').innerHTML)
+// };
 
 const titleClickHandler = function(event){
   event.preventDefault();
@@ -48,6 +52,10 @@ function generateTitleLinks(customSelector = ''){
     const articleTitle = activeArticle.querySelector(optTitleSelector).innerHTML;
 
     const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+
+
+    // const linkHTMLData = {id: articleId, title: articleTitle};
+    // const linkHTML = templates.articleLink(linkHTMLData);
 
     html = html + linkHTML;
 
@@ -108,6 +116,8 @@ function generateTags(){
     for(let tag of articleTagsArray){
 
       const linkHTML = '<li><a href="#' + tag + '"><span>' + tag + '</span></a></li>';
+      // const linkHTMLData = {id: data-tags, tags: tag};
+      // const linkHTML = templates.articleTagLink(linkHTMLData);
 
       html = html + linkHTML;
 
@@ -128,8 +138,7 @@ function generateTags(){
 
   for(let tag in allTags){
     allTagsHTML += `<li><a class="${calculateTagClass(allTags[tag], tagsParams)}" href="#tag-${tag}">${tag}</a></li>`;
-  }
-
+  
   tagList.innerHTML = allTagsHTML;
    
 
@@ -283,4 +292,3 @@ function addClickListenersToAuthors(){
 }
 
 addClickListenersToAuthors();
-
