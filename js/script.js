@@ -68,6 +68,7 @@ function generateTitleLinks(customSelector = ''){
 
   titleList.innerHTML = html;
 }
+
 generateTitleLinks();
 
 function calculateTagsParams(tags){
@@ -115,8 +116,8 @@ function generateTags(){
 
     for(let tag of articleTagsArray){
 
-      const linkHTML = '<li><a href="#' + tag + '"><span>' + tag + '</span></a></li>';
-      // const linkHTMLData = {id: data-tags, tags: tag};
+      const linkHTML = '<li><a href="#' + tag + '"><span>' + tag + '&nbsp;' + '</span></a></li>';
+      // const linkHTMLData = {dataTags: tag, tags: tag};
       // const linkHTML = templates.articleTagLink(linkHTMLData);
 
       html = html + linkHTML;
@@ -137,11 +138,10 @@ function generateTags(){
   let allTagsHTML = '';
 
   for(let tag in allTags){
-    allTagsHTML += `<li><a class="${calculateTagClass(allTags[tag], tagsParams)}" href="#tag-${tag}">${tag}</a></li>`;
-  
+    allTagsHTML += `<li><a class="${calculateTagClass(allTags[tag], tagsParams)}" href="#tag-${tag}">${tag +'&nbsp;'}</a></li>`;
+  }
   tagList.innerHTML = allTagsHTML;
-   
-
+  
 }
 
 generateTags();
@@ -227,8 +227,8 @@ function generateAuthors(){
     let html = '';
 
     const author = article.getAttribute('data-author');
-    console.log(author);
     const authorHTML = '<p><a href="#' + allAuthors + '"><span>' + author + '</span></a></p>';
+
     html = html + authorHTML;
 
     if(!allAuthors[author]) {
