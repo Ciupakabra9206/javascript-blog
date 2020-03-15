@@ -142,7 +142,6 @@ function generateTags(){
   for(let tag in allTags){
     allTagsData.tags.push({
       tag: tag,
-      count: allTags[tag],
       className: calculateTagClass(allTags[tag], tagsParams)
     });  }
 
@@ -258,13 +257,12 @@ function generateAuthors(){
 
   const authorsParams = calculateAuthorsParams(allAuthors);
 
-  const allAuthorsData = {author: []};
+  const allAuthorsData = {authors: []};
   console.log(allAuthorsData);
   for(let author in allAuthors){
 
-    allAuthorsData.author.push({
+    allAuthorsData.authors.push({
       author: author,
-      count: allAuthors[author],
       className: calculateAuthorsClass(allAuthors[author], authorsParams)
     }); 
   }
